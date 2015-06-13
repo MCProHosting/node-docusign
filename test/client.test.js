@@ -68,10 +68,10 @@ describe('client', function () {
 
         setTimeout(function () {
             expect(request.run.callCount).to.equal(1);
-            deferred.resolve({
+            deferred.resolve([{
                 statusCode: 200,
                 body: { loginAccounts: [{ baseUrl: 'https://demo.docusign.net/restapi/v2/accounts/1234567' }]}
-            });
+            }]);
         }, 10);
     });
 
@@ -84,7 +84,7 @@ describe('client', function () {
         });
 
         it('throws on errorful', function (done) {
-            deferred.resolve({ statusCode: 404 });
+            deferred.resolve([{ statusCode: 404 }]);
             client.request({}).catch(errors.HttpError, function (err) {
                 expect(err.code).to.equal(404);
                 expect(err.response).to.deep.equal({ statusCode: 404 });
