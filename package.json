@@ -1,5 +1,5 @@
 {
-  "name": "docusign",
+  "name": "@mcph/docusign",
   "version": "1.0.0",
   "description": "Docusign client for Node.js",
   "main": "index.js",
